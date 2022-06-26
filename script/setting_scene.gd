@@ -9,40 +9,46 @@ onready var mouse_speed_slider = $MarginContainer/VBoxContainer/HBoxContainer2/V
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var setting = SaveData.get_setting()
-	if ('mouse_speed' in setting):
-		mouse_speed_slider.value = setting['mouse_speed']
-		
+    var setting = SaveData.get_setting()
+    if ('mouse_speed' in setting):
+        mouse_speed_slider.value = setting['mouse_speed']
+    update_mobile_constraints()
 
+func update_mobile_constraints():
+    var height = get_viewport_rect().size.y
+    var width = get_viewport_rect().size.x
+    var y_offset = (height - 600) / 2
+    var x_offset = (width - 1024) / 2
+    $MarginContainer.rect_position = Vector2(x_offset, y_offset)
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://menu_main.tscn")
+    get_tree().change_scene("res://menu_main.tscn")
 
 
 func _on_ImportSaveButton_pressed():
-	get_tree().change_scene("res://import_save_scene.tscn")
+    get_tree().change_scene("res://import_save_scene.tscn")
 
 
 func _on_ExportSaveButton_pressed():
-	get_tree().change_scene("res://export_save_scene.tscn")
+    get_tree().change_scene("res://export_save_scene.tscn")
 
 
 func _on_ClearProgressButton_pressed():
-	if (clear_save_button.text == 'Are you sure?'):
-		SaveData.clear()
-		clear_save_button.text = 'Save cleared.'
-		if (MenuData.puzzle_preview_panels != null):
-			for puzzle_name in MenuData.puzzle_preview_panels:
-				if (MenuData.puzzle_preview_panels[puzzle_name] != null):
-					MenuData.puzzle_preview_panels[puzzle_name].update_puzzle(false)
-	else:
-		clear_save_button.text = 'Are you sure?'
+    if (clear_save_button.text == 'Are you sure?'):
+        SaveData.clear()
+        clear_save_button.text = 'Save cleared.'
+        if (MenuData.puzzle_preview_panels != null):
+            for puzzle_name in MenuData.puzzle_preview_panels:
+                if (MenuData.puzzle_preview_panels[puzzle_name] != null):
+                    MenuData.puzzle_preview_panels[puzzle_name].update_puzzle(false)
+    else:
+        clear_save_button.text = 'Are you sure?'
 
 
 func _on_MouseSpeedSlider_value_changed(value):
-	var new_speed = exp(mouse_speed_slider.value)
-	mouse_speed_text.bbcode_text = '[center]%.2f[/center]' % new_speed
-	var setting = SaveData.get_setting()
-	setting['mouse_speed'] = mouse_speed_slider.value
-	SaveData.save_setting(setting)
+    var new_speed = exp(mouse_speed_slider.value)
+    mouse_speed_text.bbcode_text = '[center]%.2f[/center]' % new_speed
+    var setting = SaveData.get_setting()
+    setting['mouse_speed'] = mouse_speed_slider.value
+    SaveData.save_setting(setting)
 

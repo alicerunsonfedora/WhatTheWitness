@@ -16,7 +16,7 @@ _global_script_class_icons={
 
 config/name="Custom Witness Puzzles"
 run/main_scene="res://menu_main.tscn"
-config/icon="res://icon.png"
+config/icon="res://export/icon@1024x.png"
 
 [autoload]
 
@@ -42,8 +42,11 @@ settings/stdout/print_fps=true
 
 [display]
 
+window/handheld/orientation="sensor"
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
+window/stretch/aspect.iOS="expand"
+window/size/height.iOS=768
 
 [network]
 
@@ -53,7 +56,7 @@ limits/debugger_stdout/max_chars_per_second=20480
 
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
-vram_compression/import_etc2=false
+vram_compression/import_pvrtc=true
 environment/default_clear_color=Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

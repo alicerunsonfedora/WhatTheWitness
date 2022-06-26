@@ -29,9 +29,6 @@ visible = false
 margin_right = 1031.0
 margin_bottom = 617.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SideMenu" type="Node2D" parent="."]
 
@@ -45,9 +42,6 @@ bbcode_enabled = true
 bbcode_text = "[right]0 / 0[/right] "
 text = "0 / 0 "
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PuzzleCredits" type="RichTextLabel" parent="SideMenu"]
 margin_top = 549.0

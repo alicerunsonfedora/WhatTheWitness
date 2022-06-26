@@ -22,27 +22,21 @@ script = ExtResource( 1 )
 margin_right = 1025.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = -2.24487
 margin_top = 2.24493
 margin_right = 1022.76
-margin_bottom = 604.245
+margin_bottom = 600.0
 custom_constants/margin_right = 150
 custom_constants/margin_top = 0
 custom_constants/margin_left = 150
 custom_constants/margin_bottom = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PuzzleRegion" type="ColorRect" parent="MarginContainer"]
 margin_left = 150.0
 margin_right = 875.0
-margin_bottom = 602.0
+margin_bottom = 597.0
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,9 +49,6 @@ margin_right = -4.99994
 margin_bottom = -2.0
 texture = SubResource( 1 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Viewport" type="Viewport" parent="MarginContainer/PuzzleRegion/PuzzleForeground"]
 size = Vector2( 1440, 1200 )
@@ -108,9 +99,6 @@ margin_right = 117.0
 margin_bottom = 65.0
 texture_normal = ExtResource( 6 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="mouse_entered" from="RightArrowButton" to="." method="_on_right_arrow_button_mouse_entered"]
 [connection signal="mouse_exited" from="RightArrowButton" to="." method="_on_right_arrow_button_mouse_exited"]
